@@ -9,8 +9,6 @@ services:
     container_name: back-end
     hostname: back-end
     restart: always
-    volumes:
-      - ./:/var/back-end
     depends_on:
       - 'pgsql'
       - 'redis'
