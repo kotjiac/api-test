@@ -26,7 +26,6 @@ jobs:
           REPO_NAME: api-test
         run: |
           sed -i 's/redis-server/127.0.0.1/' .env.example
-          sed -i 's/pgsql-server/127.0.0.1/' .env.example
           cp .env.example .env
           docker build -t $DOCKERHUB_USERNAME/public:$REPO_NAME ./
           docker push $DOCKERHUB_USERNAME/public:$REPO_NAME
