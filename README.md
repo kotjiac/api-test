@@ -6,6 +6,7 @@ Criar denúncias (exemplo):
 
 POST https://127.0.0.1:3333/v1/denuncias
 
+```json
 {
   "latitude": -21.208301527063867,
   "longitude": -50.42502530907879,
@@ -18,7 +19,7 @@ POST https://127.0.0.1:3333/v1/denuncias
     "descricao": "Existe um esgoto a céu aberto nesta localidade."
 	}
 }
-
+```
 Listar denúncias:
 
 GET https://127.0.0.1:3333/v1/denuncias
