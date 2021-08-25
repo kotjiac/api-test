@@ -4,7 +4,7 @@ API teste para o cadastro de denúncias a partir de dados de localização (lati
 
 Criar denúncias (exemplo):
 
-POST https://127.0.0.1:3333/v1/denuncias
+POST http://127.0.0.1:3333/v1/denuncias
 
 ```json
 {
@@ -22,7 +22,7 @@ POST https://127.0.0.1:3333/v1/denuncias
 ```
 Listar denúncias:
 
-GET https://127.0.0.1:3333/v1/denuncias
+GET http://127.0.0.1:3333/v1/denuncias
 
 # Deploy
 
