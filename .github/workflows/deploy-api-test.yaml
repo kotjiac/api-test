@@ -34,4 +34,4 @@ jobs:
           KUBE_CONFIG_DATA: ${{ secrets.K3S_KUBE_CONFIG }}
           REPO_NAME: api-test
         with:
-          args: patch deployment -n $REPO_NAME $REPO_NAME --patch '{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"redeploy\":\"${{ github.sha }}\"}}}}}'
+          args: patch deployment -n ronaldo-lab $REPO_NAME --patch '{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"redeploy\":\"${{ github.sha }}\"}}}}}'
