@@ -25,6 +25,7 @@ jobs:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           REPO_NAME: api-test
         run: |
+          cp .env.example .env
           docker build -t $DOCKERHUB_USERNAME/public:$REPO_NAME ./
           docker push $DOCKERHUB_USERNAME/public:$REPO_NAME
           
