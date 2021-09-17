@@ -17,7 +17,7 @@ POST http://127.0.0.1:3333/v1/denuncias
   "denuncia": {
     "titulo": "Esgoto a céu aberto",
     "descricao": "Existe um esgoto a céu aberto nesta localidade."
-	}
+  }
 }
 ```
 Listar denúncias:
