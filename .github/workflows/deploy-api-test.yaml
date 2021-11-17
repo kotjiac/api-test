@@ -29,10 +29,3 @@ jobs:
           cp .env.example .env
           docker build -t $DOCKERHUB_USERNAME/public:$REPO_NAME ./
           docker push $DOCKERHUB_USERNAME/public:$REPO_NAME
-          
-      - uses: steebchen/kubectl@v1.1.0
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.K3S_KUBE_CONFIG }}
-          REPO_NAME: api-test
-        with:
-          args: patch deployment -n ronaldo-lab $REPO_NAME --patch '{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"redeploy\":\"${{ github.sha }}\"}}}}}'
