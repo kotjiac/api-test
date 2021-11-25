@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(AWSXRay.express.openSegment('AWSXRay: API-Test'));
 app.use(routes);
+app.use(AWSXRay.express.closeSegment());
 
 app.listen(PORT, HOST, () => {
   console.log(`API-Test Listening on :: ${HOST}:${PORT}`);
