@@ -10,12 +10,12 @@ routes.post('/cache',
   CacheController.getReverseGeocode
 );
 
-routes.post('/v1/denuncias',
+routes.post('/denuncias',
   DenunciasController.validate('create'),
   DenunciasController.create
 );
 
-routes.get('/v1/denuncias',
+routes.get('/denuncias',
   DenunciasController.list
 );
 
