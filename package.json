@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "async-redis": "^2.0.0",
+    "aws-xray-sdk": "1.1.2",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -17,10 +18,10 @@
     "express-validator": "^6.12.1",
     "knex": "^0.95.10",
     "mapquest": "^0.2.0",
+    "newrelic": "^8.6.0",
     "ngeohash": "^0.6.3",
     "pg": "^8.7.1",
-    "redis": "^3.1.2",
-    "aws-xray-sdk" : "1.1.2"
+    "redis": "^3.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
