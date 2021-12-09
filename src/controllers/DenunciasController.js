@@ -10,6 +10,7 @@ module.exports = {
   async create (req, res) {
     try {
       const errors = validationResult(req)
+      console.log(errors)
       if (!errors.isEmpty()) {
         res.status(422).json({ errors: errors.array() })
         return;
@@ -37,6 +38,7 @@ module.exports = {
         })
         .returning('id')
         .then(async ([id]) => {
+          console.log('created')
           res.status(201).json({
             data: {
               id: id,
@@ -55,6 +57,7 @@ module.exports = {
           })
         })
       } else {
+        console.log('address not found')
         res.status(404).json({
           error: {
             message: 'Endereço não encontrado para essa localidade.' ,
@@ -71,6 +74,7 @@ module.exports = {
   async list(req, res) {
     await connection('denuncias').select()
     .then(async denuncias => {
+      console.log('get denuncias')
       res.status(200).json(denuncias)
      });
   },

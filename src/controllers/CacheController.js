@@ -24,6 +24,7 @@ module.exports = {
       }
       var response = await axios.request(options)
       if (response.data.info.statuscode.toString() !== '0') {
+        console.log('invalid request')
         res.status(400).json({
           error: {
             message: 'Request inválido.' ,
@@ -39,7 +40,7 @@ module.exports = {
           pais: response.data.results[0].locations[0].adminArea1,
           cep: response.data.results[0].locations[0].postalCode
         }
-        //console.log('ENDERECO_DIRETO: '  + endereco)   
+        console.log('ENDERECO_DIRETO: '  + endereco)   
         var geohash = Geohash.encode(req.body.latitude, req.body.longitude)
         client.setex(geohash, process.env.MAPQUEST_API_CACHE_TIMEOUT, JSON.stringify(endereco));
         res.status(200).json(endereco)
@@ -58,7 +59,7 @@ module.exports = {
       if (error) throw error;
 
       if (data !== null) {
-        //console.log('ENDERECO_CACHE: '  + JSON.stringify(data))
+        console.log('ENDERECO_CACHE: '  + JSON.stringify(data))
         res.status(200).json(JSON.parse(data))
       } else {
         next();
