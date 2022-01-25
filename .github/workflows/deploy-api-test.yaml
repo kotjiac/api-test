@@ -42,7 +42,8 @@ jobs:
         run: |
           git clone git@github.com:kotjiac/api-test-deploy.git
           cd api-test-deploy
-          sed -E "s/(.*image: kotjiac/public:api-test).*/\1\ image: kotjiac/public:api-test-${{ github.sha }}/" manifests/deployment.yaml
+          #sed -E "s/(.*image: kotjiac/public:api-test).*/\1\ image: kotjiac/public:api-test-${{ github.sha }}/" manifests/deployment.yaml
+          echo "TESTE" >> manifests/deployment.yaml
           git add manifests/deployment.yaml
           git commit -m "gitops-auto"
           git push
