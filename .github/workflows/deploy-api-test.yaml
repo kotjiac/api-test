@@ -45,5 +45,7 @@ jobs:
           #sed -E "s/(.*image: kotjiac/public:api-test).*/\1\ image: kotjiac/public:api-test-${{ github.sha }}/" manifests/deployment.yaml
           echo "TESTE" >> manifests/deployment.yaml
           git add manifests/deployment.yaml
+          git config --global user.email "gitops@meuchapa.net"
+          git config --global user.name "GitOps"
           git commit -m "gitops-auto"
           git push
