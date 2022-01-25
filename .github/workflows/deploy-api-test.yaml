@@ -31,13 +31,3 @@ jobs:
           docker build -t $DOCKERHUB_USERNAME/public:$REPO_NAME ./
           docker push $DOCKERHUB_USERNAME/public:$REPO_NAME
           
-      - name: gitops
-        id: gitops
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo $SSH_KEY > ~/.ssh/id_rsa
-          git clone git@github.com:kotjiac/api-test-deploy.git
-          cd api-test-deploy
-          find ./ -name deployments.yaml
