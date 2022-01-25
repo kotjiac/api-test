@@ -42,8 +42,7 @@ jobs:
         run: |
           git clone git@github.com:kotjiac/api-test-deploy.git
           cd api-test-deploy
-          #sed -E "s/(.*image: kotjiac/public:api-test).*/\1\ image: kotjiac/public:api-test-${{ github.sha }}/" manifests/deployment.yaml
-          echo "TESTE" >> manifests/deployment.yaml
+          sed -E "s/(image: kotjiac).*/\1\/public:api-test-${{ github.sha }}/" manifests/deployment.yaml
           git add manifests/deployment.yaml
           git config --global user.email "gitops@meuchapa.net"
           git config --global user.name "GitOps"
