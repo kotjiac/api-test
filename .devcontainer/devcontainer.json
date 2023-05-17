@@ -1,4 +1,5 @@
 {
   "name": "api-test",
-  "dockerComposeFile": "docker-compose.yaml"
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "back-end"
 }
