@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+
+  back-end:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: back-end
+    hostname: back-end
+    restart: always
+    depends_on:
+      - 'pgsql'
+      - 'redis'
+    ports:
+      - '3333:3333'
+
+  pgsql:
+    image: postgres:latest
+    container_name: pgsql-server
+    hostname: pgsql-server
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=api-test
+    volumes:
+      - pgsql-volume:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  
+  redis:
+    image: redis:latest
+    container_name: redis-server
+    hostname: redis-server
+    restart: always
+    volumes:
+      - redis-volume:/data
+    ports:
+      - '6379:6379'
+
+volumes:
+  pgsql-volume: {}
+  redis-volume: {}
